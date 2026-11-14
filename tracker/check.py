@@ -225,7 +225,8 @@ def main():
         if alerts:
             top = max(s for s, _ in alerts)
             body = "\n".join(f"• {escape(line)}" for _, line in sorted(alerts, reverse=True))
-            notify.send(f"<b>{HEADINGS[top]}</b> — DUB ⇄ MAA\n{body}\n\n" + "\n\n".join(snapshot_lines(cfg, combos)))
+            notify.send(f"<b>{HEADINGS[top]}</b> — DUB ⇄ MAA\n{body}\n\n" + "\n\n".join(snapshot_lines(cfg, combos))
+                        + "\n\n<i>Open the link to confirm before booking: prices can differ by country and change fast.</i>")
 
     today = local.date().isoformat()
     if local.hour >= cfg["daily_summary_hour"] and state.get("last_summary") != today and runs:
