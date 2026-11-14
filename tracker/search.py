@@ -60,7 +60,8 @@ def search_round_trip(client, cfg, depart: str, ret: str, via: str | None = None
         language="en",
         max_stops=cfg["max_stops"],
     )
-    resp = client.get(URL, params=q.params())
+    # gl=IE asks for Irish-market fares; the GitHub runner is usually in the US.
+    resp = client.get(URL, params={**q.params(), "gl": cfg.get("market", "IE")})
     if resp.status_code != 200:
         raise SearchError(f"HTTP {resp.status_code}")
     html = resp.text

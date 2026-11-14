@@ -79,6 +79,12 @@ def run_searches(cfg, prev_latest):
             time.sleep(random.uniform(2.5, 5.5))
         try:
             url, items = search_with_retry(client, cfg, dep, ret)
+            # Google sometimes returns an empty or partial result page; look again before believing it.
+            old = prev.get((dep, ret), {}).get("best")
+            if not items or (old and items[0]["price"] > old["price"] * 1.2):
+                time.sleep(random.uniform(4, 8))
+                _, again = search_with_retry(client, cfg, dep, ret)
+                items = sorted(items + again, key=lambda i: i["price"])
             auh_items = [it for it in items if via(it, cfg["watch_via"])]
             auh_url = url
             if not auh_items:

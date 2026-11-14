@@ -15,5 +15,6 @@
   "drop_alert_eur": 10,
   "target_realert_hours": 12,
   "daily_summary_hour": 8,
-  "timezone": "Europe/Dublin"
+  "timezone": "Europe/Dublin",
+  "market": "IE"
 }
