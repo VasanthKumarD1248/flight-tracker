@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DUB–MAA Fare Watch</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --ring: rgba(11,11,11,0.10);
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --good: #0ca30c;
+  --good-text: #006300;
+  --warning: #fab219;
+  --bad-text: #b42f2f;
+  --accent-bg: #eef4fc;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --ring: rgba(255,255,255,0.10);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --good-text: #0ca30c;
+    --bad-text: #e66767;
+    --accent-bg: #16233a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --ring: rgba(255,255,255,0.10);
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --good-text: #0ca30c;
+  --bad-text: #e66767;
+  --accent-bg: #16233a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+main { max-width: 1040px; margin: 0 auto; padding: 24px 16px 48px; }
+header h1 { font-size: 24px; margin: 0 0 4px; letter-spacing: -0.01em; }
+header p { margin: 0; color: var(--ink-2); }
+.meta { color: var(--muted); font-size: 13px; margin-top: 6px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--ring);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+}
+h2 { font-size: 16px; margin: 0 0 2px; }
+.sub { color: var(--ink-2); font-size: 13px; margin: 0 0 12px; }
+
+.signal { display: flex; gap: 12px; align-items: flex-start; }
+.signal .icon {
+  flex: none; width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 700; font-size: 15px; color: #fff;
+}
+.signal strong { display: block; font-size: 16px; }
+.signal span { color: var(--ink-2); font-size: 14px; }
+
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+.tile { background: var(--surface); border: 1px solid var(--ring); border-radius: 12px; padding: 14px 16px; min-width: 0; }
+.tile .label { color: var(--ink-2); font-size: 13px; display: flex; align-items: center; gap: 6px; }
+.tile .value { font-size: 30px; font-weight: 650; letter-spacing: -0.02em; margin: 2px 0; }
+.tile .detail { color: var(--muted); font-size: 12.5px; }
+.swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex: none; }
+.up { color: var(--bad-text); }
+.down { color: var(--good-text); }
+
+.toggle { display: inline-flex; border: 1px solid var(--ring); border-radius: 8px; overflow: hidden; }
+.toggle button {
+  border: 0; background: transparent; color: var(--ink-2); font: inherit; font-size: 13px;
+  padding: 6px 12px; cursor: pointer;
+}
+.toggle button[aria-pressed="true"] { background: var(--accent-bg); color: var(--ink); font-weight: 600; }
+.row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+
+.heat { display: grid; gap: 2px; margin-top: 8px; }
+.heat .hd { color: var(--muted); font-size: 12px; text-align: center; padding: 4px 0; }
+.heat .rh { color: var(--ink-2); font-size: 13px; display: flex; align-items: center; padding-right: 8px; white-space: nowrap; }
+.cell {
+  border: 0; border-radius: 4px; font: inherit; font-size: 14px; font-weight: 600;
+  min-height: 44px; cursor: pointer; position: relative; padding: 0;
+  outline-offset: 2px;
+}
+.cell.na { background: transparent; color: var(--muted); cursor: default; font-weight: 400; box-shadow: inset 0 0 0 1px var(--grid); }
+.cell.sel { outline: 2px solid var(--ink); }
+.cell .tick { position: absolute; top: 2px; right: 5px; font-size: 11px; }
+.cell.lowest::after {
+  content: "lowest"; position: absolute; left: 0; right: 0; bottom: 2px;
+  font-size: 10px; font-weight: 500; letter-spacing: .02em;
+}
+.legend { display: flex; gap: 16px; flex-wrap: wrap; color: var(--ink-2); font-size: 13px; align-items: center; margin-top: 10px; }
+.legend .item { display: inline-flex; gap: 6px; align-items: center; }
+.ramp { width: 120px; height: 10px; border-radius: 2px; }
+
+#chart { position: relative; }
+#chart svg { display: block; width: 100%; height: 280px; overflow: visible; }
+#chart text { fill: var(--muted); font-size: 11px; }
+.tip {
+  position: absolute; pointer-events: none; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--ring); border-radius: 8px; padding: 8px 10px; font-size: 13px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12); white-space: nowrap; display: none; z-index: 2;
+}
+.tip .t { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+.tip .r { display: flex; align-items: center; gap: 6px; }
+.empty { color: var(--muted); padding: 40px 0; text-align: center; }
+
+.tablewrap { overflow-x: auto; margin: 0 -16px; padding: 0 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; color: var(--muted); font-weight: 500; font-size: 12px; padding: 6px 8px; border-bottom: 1px solid var(--axis); white-space: nowrap; }
+td { padding: 8px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+td.num, th.num { text-align: right; }
+tr.clickable { cursor: pointer; }
+tr.clickable:hover td { background: var(--accent-bg); }
+a { color: var(--series-1); }
+footer { color: var(--muted); font-size: 12.5px; margin-top: 24px; }
+
+@media (max-width: 760px) {
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+  .tile .value { font-size: 24px; }
+  header h1 { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Dublin ⇄ Chennai fare watch</h1>
+    <p id="trip">Round trip · 1 adult · economy</p>
+    <div class="meta" id="checked">Loading…</div>
+  </header>
+
+  <section class="card" id="signal-card"><div class="signal" id="signal"></div></section>
+
+  <section class="tiles" id="tiles"></section>
+
+  <section class="card">
+    <div class="row">
+      <div>
+        <h2>Price by date</h2>
+        <p class="sub">Round-trip price for each departure date and trip length. Tap a cell to see its history.</p>
+      </div>
+      <div class="toggle" role="group" aria-label="Fare type">
+        <button type="button" data-track="best" aria-pressed="true">Any airline</button>
+        <button type="button" data-track="auh" aria-pressed="false">Via Abu Dhabi</button>
+      </div>
+    </div>
+    <div class="heat" id="heat"></div>
+    <div class="legend">
+      <span class="item">cheaper <span class="ramp" id="ramp"></span> pricier</span>
+      <span class="item">✓ at or below target</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="row">
+      <div>
+        <h2>Price history</h2>
+        <p class="sub" id="chart-sub">Cheapest across all dates</p>
+      </div>
+      <button type="button" class="toggle" id="reset" style="display:none;padding:6px 12px;font:inherit;font-size:13px;background:transparent;color:var(--ink-2);cursor:pointer">Show all dates</button>
+    </div>
+    <div id="chart"></div>
+    <div class="legend">
+      <span class="item"><span class="swatch" style="background:var(--series-1)"></span>Any airline</span>
+      <span class="item"><span class="swatch" style="background:var(--series-2)"></span>Via Abu Dhabi</span>
+      <span class="item"><svg width="18" height="8" aria-hidden="true"><line x1="0" y1="4" x2="18" y2="4" stroke="var(--good)" stroke-width="2" stroke-dasharray="4 3"/></svg>Your target</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>All date pairs</h2>
+    <p class="sub">Sorted by price. Routes show the outbound connection; open a row in Google Flights to book.</p>
+    <div class="tablewrap"><table id="table"></table></div>
+  </section>
+
+  <footer>
+    Prices come from Google Flights and are checked every 2 hours. A price can change between a check and your booking. Alerts go to Telegram.
+  </footer>
+</main>
+
+<div class="tip" id="tip"></div>
+
+<script>
+const RAMP_LIGHT = ["#cde2fb","#b7d3f6","#9ec5f4","#86b6ef","#6da7ec","#5598e7","#3987e5","#2a78d6","#256abf","#1c5cab","#184f95"];
+const RAMP_DARK  = ["#104281","#184f95","#1c5cab","#256abf","#2a78d6","#3987e5","#5598e7","#6da7ec","#86b6ef","#9ec5f4","#b7d3f6"];
+const state = { latest: null, history: null, track: "best", selected: null };
+
+const $ = (id) => document.getElementById(id);
+const eur = (v) => v == null ? "–" : "€" + Math.round(v).toLocaleString("en-IE");
+const dfmt = (iso, opts) => new Date(iso + (iso.length === 10 ? "T00:00:00" : "")).toLocaleDateString("en-IE", opts);
+const short = (iso) => dfmt(iso, { weekday: "short", day: "numeric", month: "short" });
+const nights = (c) => Math.round((new Date(c.return) - new Date(c.depart)) / 864e5);
+const keyOf = (c) => c.depart + "|" + c.return;
+const isDark = () => getComputedStyle(document.documentElement).colorScheme === "dark";
+const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+
+function ago(iso) {
+  const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  if (m < 1) return "just now";
+  if (m < 60) return m + " min ago";
+  const h = Math.floor(m / 60);
+  return h < 48 ? h + " h ago" : Math.floor(h / 24) + " days ago";
+}
+
+async function load() {
+  const bust = "?t=" + Date.now();
+  const [latest, history] = await Promise.all([
+    fetch("data/latest.json" + bust).then((r) => r.json()),
+    fetch("data/history.json" + bust).then((r) => r.json()).catch(() => ({ runs: [] })),
+  ]);
+  state.latest = latest;
+  state.history = history;
+  render();
+}
+
+function render() {
+  const L = state.latest, cfg = L.config, S = L.summary;
+  const dep0 = new Date(cfg.depart_from + "T00:00:00");
+  const days = Math.ceil((dep0 - Date.now()) / 864e5);
+  $("trip").textContent = `Round trip · 1 adult · economy · leave ${short(cfg.depart_from)}–${short(cfg.depart_to)} 2027 · ${days} days to go`;
+  $("checked").textContent = `Last checked ${ago(L.checked_at)} (${new Date(L.checked_at).toLocaleString("en-IE", { dateStyle: "medium", timeStyle: "short" })}) · ${S.runs} checks so far`
+    + (S.failed_pairs.length ? ` · ${S.failed_pairs.length} date pairs failed this run` : "");
+  renderSignal(cfg, S, days);
+  renderTiles(cfg, S);
+  renderHeat();
+  renderChart();
+  renderTable();
+}
+
+function cheapest(track) {
+  return state.latest.combos.filter((c) => c[track] && !c.stale).sort((a, b) => a[track].price - b[track].price)[0];
+}
+
+function renderSignal(cfg, S, days) {
+  const p = S.best, low = S.best_low;
+  let color, icon, title, text;
+  if (p <= cfg.strong_target_price) {
+    color = "var(--good)"; icon = "✓"; title = "Book now";
+    text = `${eur(p)} is below your ${eur(cfg.strong_target_price)} stretch target.`;
+  } else if (p <= cfg.target_price) {
+    color = "var(--good)"; icon = "✓"; title = "Good price: below your target";
+    text = `${eur(p)} is ${eur(cfg.target_price - p)} under your ${eur(cfg.target_price)} target.`;
+  } else if (S.runs > 5 && p <= low * 1.02) {
+    color = "var(--series-1)"; icon = "i"; title = "At or near the lowest price seen";
+    text = `${eur(p)} is within 2% of the lowest price seen so far (${eur(low)}), but still ${eur(p - cfg.target_price)} above your target.`;
+  } else {
+    color = "var(--warning)"; icon = "!"; title = "Wait: above your target";
+    text = `${eur(p)} is ${eur(p - cfg.target_price)} above your ${eur(cfg.target_price)} target. You'll get a Telegram alert when it drops.`;
+  }
+  if (days <= 45 && p > cfg.target_price)
+    text += " Long-haul fares usually rise in the last 6 weeks, so don't wait too long.";
+  $("signal").innerHTML = `<div class="icon" style="background:${color};color:${icon === "!" ? "#0b0b0b" : "#fff"}">${icon}</div>
+    <div><strong>${title}</strong><span>${text}</span></div>`;
+}
+
+function prevRun() {
+  const runs = state.history.runs;
+  return runs.length > 1 ? runs[runs.length - 2] : null;
+}
+
+function delta(now, before) {
+  if (now == null || before == null) return "";
+  const d = now - before;
+  if (!d) return `<span>no change since last check</span>`;
+  return `<span class="${d < 0 ? "down" : "up"}">${d < 0 ? "▼" : "▲"} ${eur(Math.abs(d))}</span> since last check`;
+}
+
+function renderTiles(cfg, S) {
+  const b = cheapest("best"), a = cheapest("auh"), prev = prevRun();
+  const tile = (label, value, detail, swatch) => `<div class="tile">
+      <div class="label">${swatch ? `<span class="swatch" style="background:${swatch}"></span>` : ""}${label}</div>
+      <div class="value">${value}</div><div class="detail">${detail}</div></div>`;
+  $("tiles").innerHTML =
+    tile("Cheapest now", eur(S.best), b ? `${esc(b.best.airlines.join(", "))} · ${short(b.depart)} → ${short(b.return)}<br>${delta(S.best, prev && prev.best)}` : "", "var(--series-1)") +
+    tile("Via Abu Dhabi", eur(S.auh), a ? `${esc(a.auh.airlines.join(", "))} · ${short(a.depart)} → ${short(a.return)}<br>${delta(S.auh, prev && prev.auh)}` : "No fare found", "var(--series-2)") +
+    tile("Lowest seen", eur(S.best_low), `Via Abu Dhabi: ${eur(S.auh_low)}`) +
+    tile("Your target", eur(cfg.target_price), S.best <= cfg.target_price ? `<span class="down">Reached ✓</span>` : `${eur(S.best - cfg.target_price)} to go · stretch ${eur(cfg.strong_target_price)}`);
+}
+
+function renderHeat() {
+  const L = state.latest, track = state.track, target = L.config.target_price;
+  const combos = L.combos;
+  const deps = [...new Set(combos.map((c) => c.depart))].sort();
+  const lens = [...new Set(combos.map(nights))].sort((a, b) => a - b);
+  const prices = combos.filter((c) => c[track]).map((c) => c[track].price);
+  const lo = Math.min(...prices), hi = Math.max(...prices);
+  const ramp = isDark() ? RAMP_DARK : RAMP_LIGHT;
+  $("ramp").style.background = `linear-gradient(90deg, ${ramp[0]}, ${ramp[ramp.length - 1]})`;
+  const low = cheapest(track);
+  // Only tag "lowest" when it singles out a few cells; with many ties the colour says it.
+  const ties = low ? combos.filter((c) => c[track] && c[track].price === low[track].price).length : 0;
+
+  const grid = $("heat");
+  grid.style.gridTemplateColumns = `auto repeat(${lens.length}, minmax(0, 1fr))`;
+  let html = `<div></div>` + lens.map((n) => `<div class="hd">${n} days</div>`).join("");
+  for (const d of deps) {
+    html += `<div class="rh">${short(d)}</div>`;
+    for (const n of lens) {
+      const c = combos.find((x) => x.depart === d && nights(x) === n);
+      if (!c || !c[track]) { html += `<button class="cell na" disabled>–</button>`; continue; }
+      const p = c[track].price;
+      const i = hi === lo ? 0 : Math.round(((p - lo) / (hi - lo)) * (ramp.length - 1));
+      const fg = isDark() ? (i >= 7 ? "#0b0b0b" : "#fff") : (i >= 6 ? "#fff" : "#0b0b0b");
+      const k = keyOf(c);
+      const cls = ["cell", state.selected === k ? "sel" : "", low && ties <= 3 && p === low[track].price ? "lowest" : ""].join(" ");
+      html += `<button class="${cls}" data-key="${k}" style="background:${ramp[i]};color:${fg}"
+        title="${short(c.depart)} → ${short(c.return)}: ${eur(p)} (${esc(c[track].airlines.join(", "))})${c.stale ? " · not refreshed this run" : ""}"
+        aria-label="${short(c.depart)} to ${short(c.return)}, ${eur(p)}">${eur(p)}${p <= target ? `<span class="tick">✓</span>` : ""}</button>`;
+    }
+  }
+  grid.innerHTML = html;
+  grid.querySelectorAll(".cell[data-key]").forEach((el) => el.addEventListener("click", () => select(el.dataset.key)));
+}
+
+function select(key) {
+  state.selected = state.selected === key ? null : key;
+  renderHeat();
+  renderChart();
+  if (state.selected) $("chart").scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function series() {
+  const runs = state.history.runs, k = state.selected;
+  return runs.map((r) => {
+    const v = k ? (r.p && r.p[k]) || [null, null] : [r.best, r.auh];
+    return { t: new Date(r.t).getTime(), best: v[0], auh: v[1] };
+  });
+}
+
+function niceTicks(lo, hi, n = 4) {
+  const span = hi - lo || 50;
+  const step = [10, 20, 25, 50, 100, 200, 250, 500].find((s) => span / s <= n) || 1000;
+  const start = Math.floor(lo / step) * step, out = [];
+  for (let v = start; v <= hi + step * 0.001; v += step) out.push(v);
+  if (out[out.length - 1] < hi) out.push(out[out.length - 1] + step);
+  return out;
+}
+
+function renderChart() {
+  const box = $("chart"), target = state.latest.config.target_price;
+  const pts = series();
+  const k = state.selected;
+  $("reset").style.display = k ? "" : "none";
+  if (k) {
+    const [d, r] = k.split("|");
+    $("chart-sub").textContent = `${short(d)} → ${short(r)} (${Math.round((new Date(r) - new Date(d)) / 864e5)} days)`;
+  } else {
+    $("chart-sub").textContent = "Cheapest across all dates, each check";
+  }
+  const vals = pts.flatMap((p) => [p.best, p.auh]).filter((v) => v != null);
+  if (!vals.length) { box.innerHTML = `<div class="empty">No history yet. The first checks will appear here.</div>`; return; }
+
+  const W = box.clientWidth || 600, H = 280, m = { l: 44, r: 64, t: 12, b: 28 };
+  const iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const ticks = niceTicks(Math.min(...vals, target), Math.max(...vals, target));
+  const y0 = ticks[0], y1 = ticks[ticks.length - 1];
+  const t0 = pts[0].t, t1 = pts[pts.length - 1].t;
+  const X = (t) => m.l + (t1 === t0 ? iw / 2 : ((t - t0) / (t1 - t0)) * iw);
+  const Y = (v) => m.t + ih - ((v - y0) / (y1 - y0)) * ih;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Price history line chart">`;
+  for (const v of ticks) {
+    svg += `<line x1="${m.l}" x2="${m.l + iw}" y1="${Y(v)}" y2="${Y(v)}" stroke="${v === y0 ? css("--axis") : css("--grid")}" stroke-width="1"/>`;
+    svg += `<text x="${m.l - 8}" y="${Y(v) + 4}" text-anchor="end">€${v}</text>`;
+  }
+  // x ticks: whole days (at midnight) once the history spans 2+ days, otherwise hours
+  const spanDays = (t1 - t0) / 864e5;
+  const maxTicks = Math.max(2, Math.floor(iw / 70));
+  const xt = [];
+  if (spanDays >= 2) {
+    const step = Math.ceil(spanDays / maxTicks);
+    const d = new Date(t0); d.setHours(24, 0, 0, 0);
+    for (; d.getTime() <= t1; d.setDate(d.getDate() + step))
+      xt.push([d.getTime(), d.toLocaleDateString("en-IE", { day: "numeric", month: "short" })]);
+  } else {
+    const stepH = Math.max(1, Math.ceil((t1 - t0) / 36e5 / maxTicks));
+    const d = new Date(t0); d.setMinutes(60, 0, 0);
+    for (; d.getTime() <= t1; d.setHours(d.getHours() + stepH))
+      xt.push([d.getTime(), d.toLocaleTimeString("en-IE", { hour: "2-digit", minute: "2-digit" })]);
+    if (!xt.length) xt.push([t0, new Date(t0).toLocaleTimeString("en-IE", { hour: "2-digit", minute: "2-digit" })]);
+  }
+  for (const [t, lab] of xt) {
+    svg += `<line x1="${X(t)}" x2="${X(t)}" y1="${m.t + ih}" y2="${m.t + ih + 4}" stroke="${css("--axis")}"/>`;
+    svg += `<text x="${X(t)}" y="${H - 8}" text-anchor="middle">${lab}</text>`;
+  }
+  svg += `<line x1="${m.l}" x2="${m.l + iw}" y1="${Y(target)}" y2="${Y(target)}" stroke="${css("--good")}" stroke-width="2" stroke-dasharray="5 4"/>`;
+  svg += `<text x="${m.l + iw + 6}" y="${Y(target) + 4}" style="fill:var(--good-text)">target</text>`;
+
+  const draw = (key, color, labelDy) => {
+    const p = pts.filter((q) => q[key] != null);
+    if (!p.length) return "";
+    let s = `<path d="${p.map((q, i) => (i ? "L" : "M") + X(q.t).toFixed(1) + " " + Y(q[key]).toFixed(1)).join(" ")}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+    if (p.length <= 40) s += p.map((q) => `<circle cx="${X(q.t)}" cy="${Y(q[key])}" r="4" fill="${color}" stroke="${css("--surface")}" stroke-width="2"/>`).join("");
+    const last = p[p.length - 1];
+    s += `<text x="${X(last.t) + 8}" y="${Y(last[key]) + 4 + labelDy}" style="fill:var(--ink);font-weight:600">€${last[key]}</text>`;
+    return s;
+  };
+  const lb = pts.filter((q) => q.best != null).pop(), la = pts.filter((q) => q.auh != null).pop();
+  const close = lb && la && Math.abs(Y(lb.best) - Y(la.auh)) < 14;
+  const bestBelow = lb && la && lb.best <= la.auh;
+  svg += draw("auh", css("--series-2"), close ? (bestBelow ? -7 : 7) : 0);
+  svg += draw("best", css("--series-1"), close ? (bestBelow ? 7 : -7) : 0);
+  svg += `<line id="xh" x1="0" x2="0" y1="${m.t}" y2="${m.t + ih}" stroke="${css("--axis")}" stroke-width="1" style="display:none"/>`;
+  svg += `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" id="hit"/>`;
+  svg += `</svg>`;
+  box.innerHTML = svg;
+
+  const tip = $("tip"), xh = box.querySelector("#xh"), hit = box.querySelector("#hit");
+  const move = (ev) => {
+    const r = box.getBoundingClientRect();
+    const sx = ((ev.clientX - r.left) / r.width) * W;
+    let best = 0, bd = Infinity;
+    pts.forEach((q, i) => { const d = Math.abs(X(q.t) - sx); if (d < bd) { bd = d; best = i; } });
+    const q = pts[best];
+    xh.setAttribute("x1", X(q.t)); xh.setAttribute("x2", X(q.t)); xh.style.display = "";
+    tip.innerHTML = `<div class="t">${new Date(q.t).toLocaleString("en-IE", { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}</div>
+      <div class="r"><span class="swatch" style="background:var(--series-1)"></span>Any airline <b style="margin-left:auto;padding-left:12px">${eur(q.best)}</b></div>
+      <div class="r"><span class="swatch" style="background:var(--series-2)"></span>Via Abu Dhabi <b style="margin-left:auto;padding-left:12px">${eur(q.auh)}</b></div>`;
+    tip.style.display = "block";
+    const px = r.left + window.scrollX + (X(q.t) / W) * r.width;
+    const tw = tip.offsetWidth;
+    let left = px + 12;
+    if (left + tw > window.scrollX + document.documentElement.clientWidth - 8) left = px - tw - 12;
+    tip.style.left = Math.max(8, left) + "px";
+    tip.style.top = (r.top + window.scrollY + 8) + "px";
+  };
+  const leave = () => { tip.style.display = "none"; xh.style.display = "none"; };
+  hit.addEventListener("pointermove", move);
+  hit.addEventListener("pointerdown", move);
+  hit.addEventListener("pointerleave", leave);
+}
+
+function renderTable() {
+  const L = state.latest, target = L.config.target_price;
+  const rows = L.combos.filter((c) => c.best).sort((a, b) => a.best.price - b.best.price);
+  let html = `<thead><tr><th>Leave</th><th>Return</th><th class="num">Days</th><th class="num">Price</th><th class="num">Change</th><th>Airline</th><th>Outbound route</th><th>Depart → arrive</th><th class="num">Lowest seen</th><th class="num">Via AUH</th><th></th></tr></thead><tbody>`;
+  for (const c of rows) {
+    const ch = c.change == null || c.change === 0 ? `<span style="color:var(--muted)">–</span>`
+      : `<span class="${c.change < 0 ? "down" : "up"}">${c.change < 0 ? "▼" : "▲"} ${eur(Math.abs(c.change))}</span>`;
+    const dep = c.best.depart.slice(11), arr = c.best.arrive;
+    const arrLab = arr.slice(0, 10) === c.best.depart.slice(0, 10) ? arr.slice(11) : arr.slice(11) + " +1";
+    html += `<tr class="clickable" data-key="${keyOf(c)}">
+      <td>${short(c.depart)}</td><td>${short(c.return)}</td><td class="num">${nights(c)}</td>
+      <td class="num"><b>${eur(c.best.price)}</b>${c.best.price <= target ? ' <span class="down">✓</span>' : ""}</td>
+      <td class="num">${ch}</td><td>${esc(c.best.airlines.join(", "))}</td><td>${c.best.path.join(" → ")}</td>
+      <td>${dep} → ${arrLab}</td><td class="num">${eur(c.low)}</td><td class="num">${c.auh ? eur(c.auh.price) : "–"}</td>
+      <td><a href="${c.url}" target="_blank" rel="noopener">Open ↗</a></td></tr>`;
+  }
+  $("table").innerHTML = html + `</tbody>`;
+  $("table").querySelectorAll("tr.clickable").forEach((tr) => tr.addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
+    select(tr.dataset.key);
+  }));
+}
+
+document.querySelectorAll(".toggle button[data-track]").forEach((b) => b.addEventListener("click", () => {
+  state.track = b.dataset.track;
+  document.querySelectorAll(".toggle button[data-track]").forEach((x) => x.setAttribute("aria-pressed", x === b));
+  renderHeat();
+}));
+$("reset").addEventListener("click", () => { state.selected = null; renderHeat(); renderChart(); });
+let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => state.latest && renderChart(), 150); });
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => state.latest && render());
+
+load().catch((e) => { $("checked").textContent = "Could not load price data: " + e.message; });
+setInterval(() => load().catch(() => {}), 5 * 60 * 1000);
+</script>
+</body>
+</html>

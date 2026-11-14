@@ -1,0 +1,19 @@
+{
+  "origin": "DUB",
+  "destination": "MAA",
+  "watch_via": "AUH",
+  "max_stops": 1,
+  "currency": "EUR",
+  "adults": 1,
+  "seat": "economy",
+  "depart_from": "2027-02-20",
+  "depart_to": "2027-02-26",
+  "return_after_days_min": 12,
+  "return_after_days_max": 16,
+  "target_price": 600,
+  "strong_target_price": 580,
+  "drop_alert_eur": 10,
+  "target_realert_hours": 12,
+  "daily_summary_hour": 8,
+  "timezone": "Europe/Dublin"
+}
