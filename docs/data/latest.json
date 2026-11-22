@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-21T20:31:20+00:00",
+  "checked_at": "2026-11-22T02:14:09+00:00",
   "config": {
     "origin": "DUB",
     "destination": "MAA",
@@ -15,51 +15,32 @@
     "auh": 631,
     "best_low": 595,
     "auh_low": 630,
-    "runs": 23,
+    "runs": 24,
     "failed_pairs": []
   },
   "combos": [
     {
       "depart": "2027-02-20",
       "return": "2027-03-04",
-      "best": null,
-      "auh": null,
-      "options": [],
-      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjAoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDQoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
-      "auh_url": "https://www.google.com/travel/flights/search?tfs=GiESCjIwMjctMDItMjAoAWoFEgNEVUJyBRIDTUFBegNBVUgaIRIKMjAyNy0wMy0wNCgBagUSA01BQXIFEgNEVUJ6A0FVSEIBAUgBmAEB&hl=en&curr=EUR",
-      "stale": false
-    },
-    {
-      "depart": "2027-02-20",
-      "return": "2027-03-05",
-      "best": null,
-      "auh": null,
-      "options": [],
-      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjAoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDUoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
-      "auh_url": "https://www.google.com/travel/flights/search?tfs=GiESCjIwMjctMDItMjAoAWoFEgNEVUJyBRIDTUFBegNBVUgaIRIKMjAyNy0wMy0wNSgBagUSA01BQXIFEgNEVUJ6A0FVSEIBAUgBmAEB&hl=en&curr=EUR",
-      "stale": false
-    },
-    {
-      "depart": "2027-02-20",
-      "return": "2027-03-06",
       "best": {
-        "price": 651,
+        "price": 641,
         "airlines": [
-          "Etihad"
+          "Emirates"
         ],
         "path": [
           "DUB",
-          "AUH",
+          "DXB",
           "MAA"
         ],
-        "depart": "2027-02-20 08:05",
-        "arrive": "2027-02-21 02:35",
-        "flight_minutes": 690
+        "depart": "2027-02-20 20:50",
+        "arrive": "2027-02-21 20:10",
+        "flight_minutes": 675
       },
       "auh": {
-        "price": 651,
+        "price": 646,
         "airlines": [
-          "Etihad"
+          "Etihad",
+          "Akasa Air"
         ],
         "path": [
           "DUB",
@@ -67,14 +48,29 @@
           "MAA"
         ],
         "depart": "2027-02-20 08:05",
-        "arrive": "2027-02-21 02:35",
-        "flight_minutes": 690
+        "arrive": "2027-02-21 15:00",
+        "flight_minutes": 695
       },
       "options": [
         {
-          "price": 651,
+          "price": 641,
           "airlines": [
-            "Etihad"
+            "Emirates"
+          ],
+          "path": [
+            "DUB",
+            "DXB",
+            "MAA"
+          ],
+          "depart": "2027-02-20 20:50",
+          "arrive": "2027-02-21 20:10",
+          "flight_minutes": 675
+        },
+        {
+          "price": 646,
+          "airlines": [
+            "Etihad",
+            "Akasa Air"
           ],
           "path": [
             "DUB",
@@ -82,9 +78,95 @@
             "MAA"
           ],
           "depart": "2027-02-20 08:05",
-          "arrive": "2027-02-21 02:35",
-          "flight_minutes": 690
+          "arrive": "2027-02-21 15:00",
+          "flight_minutes": 695
         },
+        {
+          "price": 656,
+          "airlines": [
+            "Qatar Airways",
+            "IndiGo"
+          ],
+          "path": [
+            "DUB",
+            "DOH",
+            "MAA"
+          ],
+          "depart": "2027-02-20 07:45",
+          "arrive": "2027-02-21 02:15",
+          "flight_minutes": 685
+        },
+        {
+          "price": 676,
+          "airlines": [
+            "Aer Lingus",
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LHR",
+            "MAA"
+          ],
+          "depart": "2027-02-20 10:00",
+          "arrive": "2027-02-21 05:35",
+          "flight_minutes": 680
+        },
+        {
+          "price": 744,
+          "airlines": [
+            "Lufthansa"
+          ],
+          "path": [
+            "DUB",
+            "FRA",
+            "MAA"
+          ],
+          "depart": "2027-02-20 05:10",
+          "arrive": "2027-02-21 00:05",
+          "flight_minutes": 680
+        }
+      ],
+      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjAoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDQoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
+      "auh_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjAoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDQoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
+      "stale": false,
+      "low": 641,
+      "high": 653,
+      "change": 0
+    },
+    {
+      "depart": "2027-02-20",
+      "return": "2027-03-05",
+      "best": {
+        "price": 656,
+        "airlines": [
+          "Etihad",
+          "Akasa Air"
+        ],
+        "path": [
+          "DUB",
+          "AUH",
+          "MAA"
+        ],
+        "depart": "2027-02-20 08:05",
+        "arrive": "2027-02-21 15:00",
+        "flight_minutes": 695
+      },
+      "auh": {
+        "price": 656,
+        "airlines": [
+          "Etihad",
+          "Akasa Air"
+        ],
+        "path": [
+          "DUB",
+          "AUH",
+          "MAA"
+        ],
+        "depart": "2027-02-20 08:05",
+        "arrive": "2027-02-21 15:00",
+        "flight_minutes": 695
+      },
+      "options": [
         {
           "price": 656,
           "airlines": [
@@ -101,18 +183,160 @@
           "flight_minutes": 695
         },
         {
-          "price": 1073,
+          "price": 666,
           "airlines": [
-            "Etihad",
-            "Air Arabia"
+            "Emirates"
           ],
           "path": [
             "DUB",
-            "AUH",
+            "DXB",
             "MAA"
           ],
-          "depart": "2027-02-20 08:05",
-          "arrive": "2027-02-21 04:10",
+          "depart": "2027-02-20 20:50",
+          "arrive": "2027-02-21 20:10",
+          "flight_minutes": 675
+        },
+        {
+          "price": 670,
+          "airlines": [
+            "Aer Lingus",
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LHR",
+            "MAA"
+          ],
+          "depart": "2027-02-20 10:00",
+          "arrive": "2027-02-21 05:35",
+          "flight_minutes": 680
+        },
+        {
+          "price": 687,
+          "airlines": [
+            "Qatar Airways",
+            "IndiGo"
+          ],
+          "path": [
+            "DUB",
+            "DOH",
+            "MAA"
+          ],
+          "depart": "2027-02-20 07:45",
+          "arrive": "2027-02-21 02:15",
+          "flight_minutes": 685
+        },
+        {
+          "price": 802,
+          "airlines": [
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LHR",
+            "MAA"
+          ],
+          "depart": "2027-02-20 11:00",
+          "arrive": "2027-02-21 05:35",
+          "flight_minutes": 685
+        }
+      ],
+      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjAoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDUoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
+      "auh_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjAoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDUoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
+      "stale": false,
+      "low": 650,
+      "high": 666,
+      "change": 1
+    },
+    {
+      "depart": "2027-02-20",
+      "return": "2027-03-06",
+      "best": {
+        "price": 666,
+        "airlines": [
+          "Emirates"
+        ],
+        "path": [
+          "DUB",
+          "DXB",
+          "MAA"
+        ],
+        "depart": "2027-02-20 20:50",
+        "arrive": "2027-02-21 20:10",
+        "flight_minutes": 675
+      },
+      "auh": null,
+      "options": [
+        {
+          "price": 666,
+          "airlines": [
+            "Emirates"
+          ],
+          "path": [
+            "DUB",
+            "DXB",
+            "MAA"
+          ],
+          "depart": "2027-02-20 20:50",
+          "arrive": "2027-02-21 20:10",
+          "flight_minutes": 675
+        },
+        {
+          "price": 670,
+          "airlines": [
+            "Aer Lingus",
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LHR",
+            "MAA"
+          ],
+          "depart": "2027-02-20 10:00",
+          "arrive": "2027-02-21 05:35",
+          "flight_minutes": 680
+        },
+        {
+          "price": 687,
+          "airlines": [
+            "Qatar Airways",
+            "IndiGo"
+          ],
+          "path": [
+            "DUB",
+            "DOH",
+            "MAA"
+          ],
+          "depart": "2027-02-20 07:45",
+          "arrive": "2027-02-21 02:15",
+          "flight_minutes": 685
+        },
+        {
+          "price": 714,
+          "airlines": [
+            "Lufthansa"
+          ],
+          "path": [
+            "DUB",
+            "FRA",
+            "MAA"
+          ],
+          "depart": "2027-02-20 05:10",
+          "arrive": "2027-02-21 00:05",
+          "flight_minutes": 680
+        },
+        {
+          "price": 802,
+          "airlines": [
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LHR",
+            "MAA"
+          ],
+          "depart": "2027-02-20 11:00",
+          "arrive": "2027-02-21 05:35",
           "flight_minutes": 685
         }
       ],
@@ -121,7 +345,7 @@
       "stale": false,
       "low": 650,
       "high": 666,
-      "change": 0
+      "change": 15
     },
     {
       "depart": "2027-02-20",
@@ -236,7 +460,7 @@
       "stale": false,
       "low": 650,
       "high": 666,
-      "change": 1
+      "change": 0
     },
     {
       "depart": "2027-02-20",
@@ -355,36 +579,25 @@
     {
       "depart": "2027-02-21",
       "return": "2027-03-05",
-      "best": null,
-      "auh": null,
-      "options": [],
-      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjEoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDUoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
-      "auh_url": "https://www.google.com/travel/flights/search?tfs=GiESCjIwMjctMDItMjEoAWoFEgNEVUJyBRIDTUFBegNBVUgaIRIKMjAyNy0wMy0wNSgBagUSA01BQXIFEgNEVUJ6A0FVSEIBAUgBmAEB&hl=en&curr=EUR",
-      "stale": false
-    },
-    {
-      "depart": "2027-02-21",
-      "return": "2027-03-06",
       "best": {
-        "price": 1068,
+        "price": 631,
         "airlines": [
-          "Etihad",
-          "Air Arabia"
+          "Aer Lingus",
+          "British Airways"
         ],
         "path": [
           "DUB",
-          "AUH",
+          "LHR",
           "MAA"
         ],
-        "depart": "2027-02-21 19:45",
-        "arrive": "2027-02-23 04:10",
-        "flight_minutes": 680
+        "depart": "2027-02-21 07:35",
+        "arrive": "2027-02-22 05:35",
+        "flight_minutes": 685
       },
       "auh": {
-        "price": 1068,
+        "price": 646,
         "airlines": [
-          "Etihad",
-          "Air Arabia"
+          "Etihad"
         ],
         "path": [
           "DUB",
@@ -392,15 +605,58 @@
           "MAA"
         ],
         "depart": "2027-02-21 19:45",
-        "arrive": "2027-02-23 04:10",
-        "flight_minutes": 680
+        "arrive": "2027-02-22 19:50",
+        "flight_minutes": 685
       },
       "options": [
         {
-          "price": 1068,
+          "price": 631,
           "airlines": [
-            "Etihad",
-            "Air Arabia"
+            "Aer Lingus",
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LHR",
+            "MAA"
+          ],
+          "depart": "2027-02-21 07:35",
+          "arrive": "2027-02-22 05:35",
+          "flight_minutes": 685
+        },
+        {
+          "price": 631,
+          "airlines": [
+            "Aer Lingus",
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LHR",
+            "MAA"
+          ],
+          "depart": "2027-02-21 19:45",
+          "arrive": "2027-02-23 05:35",
+          "flight_minutes": 675
+        },
+        {
+          "price": 641,
+          "airlines": [
+            "Emirates"
+          ],
+          "path": [
+            "DUB",
+            "DXB",
+            "MAA"
+          ],
+          "depart": "2027-02-21 20:50",
+          "arrive": "2027-02-22 20:10",
+          "flight_minutes": 675
+        },
+        {
+          "price": 646,
+          "airlines": [
+            "Etihad"
           ],
           "path": [
             "DUB",
@@ -408,31 +664,145 @@
             "MAA"
           ],
           "depart": "2027-02-21 19:45",
-          "arrive": "2027-02-23 04:10",
-          "flight_minutes": 680
+          "arrive": "2027-02-22 19:50",
+          "flight_minutes": 685
         },
         {
-          "price": 1072,
+          "price": 651,
           "airlines": [
             "Etihad",
-            "Air Arabia"
+            "Akasa Air"
           ],
           "path": [
             "DUB",
             "AUH",
             "MAA"
           ],
-          "depart": "2027-02-21 08:05",
-          "arrive": "2027-02-22 04:10",
+          "depart": "2027-02-21 19:45",
+          "arrive": "2027-02-22 15:00",
+          "flight_minutes": 690
+        }
+      ],
+      "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjEoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDUoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
+      "auh_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjEoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDUoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
+      "stale": false,
+      "low": 631,
+      "high": 1069,
+      "change": 0
+    },
+    {
+      "depart": "2027-02-21",
+      "return": "2027-03-06",
+      "best": {
+        "price": 637,
+        "airlines": [
+          "Aer Lingus",
+          "British Airways"
+        ],
+        "path": [
+          "DUB",
+          "LHR",
+          "MAA"
+        ],
+        "depart": "2027-02-21 07:35",
+        "arrive": "2027-02-22 05:35",
+        "flight_minutes": 685
+      },
+      "auh": {
+        "price": 646,
+        "airlines": [
+          "Etihad"
+        ],
+        "path": [
+          "DUB",
+          "AUH",
+          "MAA"
+        ],
+        "depart": "2027-02-21 19:45",
+        "arrive": "2027-02-22 19:50",
+        "flight_minutes": 685
+      },
+      "options": [
+        {
+          "price": 637,
+          "airlines": [
+            "Aer Lingus",
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LHR",
+            "MAA"
+          ],
+          "depart": "2027-02-21 07:35",
+          "arrive": "2027-02-22 05:35",
+          "flight_minutes": 685
+        },
+        {
+          "price": 641,
+          "airlines": [
+            "Emirates"
+          ],
+          "path": [
+            "DUB",
+            "DXB",
+            "MAA"
+          ],
+          "depart": "2027-02-21 20:50",
+          "arrive": "2027-02-22 20:10",
+          "flight_minutes": 675
+        },
+        {
+          "price": 646,
+          "airlines": [
+            "Etihad"
+          ],
+          "path": [
+            "DUB",
+            "AUH",
+            "MAA"
+          ],
+          "depart": "2027-02-21 19:45",
+          "arrive": "2027-02-22 19:50",
+          "flight_minutes": 685
+        },
+        {
+          "price": 650,
+          "airlines": [
+            "Etihad",
+            "Akasa Air"
+          ],
+          "path": [
+            "DUB",
+            "AUH",
+            "MAA"
+          ],
+          "depart": "2027-02-21 19:45",
+          "arrive": "2027-02-22 15:00",
+          "flight_minutes": 690
+        },
+        {
+          "price": 687,
+          "airlines": [
+            "Qatar Airways",
+            "IndiGo"
+          ],
+          "path": [
+            "DUB",
+            "DOH",
+            "MAA"
+          ],
+          "depart": "2027-02-21 07:45",
+          "arrive": "2027-02-22 02:15",
           "flight_minutes": 685
         }
       ],
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjEoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDYoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
-      "auh_url": "https://www.google.com/travel/flights/search?tfs=GiESCjIwMjctMDItMjEoAWoFEgNEVUJyBRIDTUFBegNBVUgaIRIKMjAyNy0wMy0wNigBagUSA01BQXIFEgNEVUJ6A0FVSEIBAUgBmAEB&hl=en&curr=EUR",
+      "auh_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjEoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDYoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
       "stale": false,
       "low": 637,
       "high": 1068,
-      "change": 431
+      "change": -431
     },
     {
       "depart": "2027-02-21",
@@ -566,7 +936,7 @@
         "flight_minutes": 675
       },
       "auh": {
-        "price": 646,
+        "price": 642,
         "airlines": [
           "Etihad"
         ],
@@ -610,7 +980,7 @@
           "flight_minutes": 685
         },
         {
-          "price": 646,
+          "price": 642,
           "airlines": [
             "Etihad"
           ],
@@ -679,7 +1049,7 @@
         "flight_minutes": 675
       },
       "auh": {
-        "price": 646,
+        "price": 642,
         "airlines": [
           "Etihad"
         ],
@@ -723,7 +1093,7 @@
           "flight_minutes": 685
         },
         {
-          "price": 646,
+          "price": 642,
           "airlines": [
             "Etihad"
           ],
@@ -886,17 +1256,121 @@
       "stale": false,
       "low": 631,
       "high": 637,
-      "change": -5
+      "change": 0
     },
     {
       "depart": "2027-02-22",
       "return": "2027-03-07",
-      "best": null,
-      "auh": null,
-      "options": [],
+      "best": {
+        "price": 636,
+        "airlines": [
+          "Etihad",
+          "Akasa Air"
+        ],
+        "path": [
+          "DUB",
+          "AUH",
+          "MAA"
+        ],
+        "depart": "2027-02-22 19:45",
+        "arrive": "2027-02-23 15:05",
+        "flight_minutes": 690
+      },
+      "auh": {
+        "price": 636,
+        "airlines": [
+          "Etihad",
+          "Akasa Air"
+        ],
+        "path": [
+          "DUB",
+          "AUH",
+          "MAA"
+        ],
+        "depart": "2027-02-22 19:45",
+        "arrive": "2027-02-23 15:05",
+        "flight_minutes": 690
+      },
+      "options": [
+        {
+          "price": 636,
+          "airlines": [
+            "Etihad",
+            "Akasa Air"
+          ],
+          "path": [
+            "DUB",
+            "AUH",
+            "MAA"
+          ],
+          "depart": "2027-02-22 19:45",
+          "arrive": "2027-02-23 15:05",
+          "flight_minutes": 690
+        },
+        {
+          "price": 637,
+          "airlines": [
+            "Aer Lingus",
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LHR",
+            "MAA"
+          ],
+          "depart": "2027-02-22 10:00",
+          "arrive": "2027-02-23 05:35",
+          "flight_minutes": 680
+        },
+        {
+          "price": 641,
+          "airlines": [
+            "Emirates"
+          ],
+          "path": [
+            "DUB",
+            "DXB",
+            "MAA"
+          ],
+          "depart": "2027-02-22 13:10",
+          "arrive": "2027-02-23 08:15",
+          "flight_minutes": 690
+        },
+        {
+          "price": 641,
+          "airlines": [
+            "Emirates"
+          ],
+          "path": [
+            "DUB",
+            "DXB",
+            "MAA"
+          ],
+          "depart": "2027-02-22 20:50",
+          "arrive": "2027-02-23 20:10",
+          "flight_minutes": 675
+        },
+        {
+          "price": 648,
+          "airlines": [
+            "Etihad"
+          ],
+          "path": [
+            "DUB",
+            "AUH",
+            "MAA"
+          ],
+          "depart": "2027-02-22 19:45",
+          "arrive": "2027-02-23 19:50",
+          "flight_minutes": 685
+        }
+      ],
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjIoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDcoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
-      "auh_url": "https://www.google.com/travel/flights/search?tfs=GiESCjIwMjctMDItMjIoAWoFEgNEVUJyBRIDTUFBegNBVUgaIRIKMjAyNy0wMy0wNygBagUSA01BQXIFEgNEVUJ6A0FVSEIBAUgBmAEB&hl=en&curr=EUR",
-      "stale": false
+      "auh_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjIoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDcoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
+      "stale": false,
+      "low": 635,
+      "high": 637,
+      "change": 0
     },
     {
       "depart": "2027-02-22",
@@ -916,7 +1390,7 @@
         "flight_minutes": 675
       },
       "auh": {
-        "price": 636,
+        "price": 632,
         "airlines": [
           "Etihad",
           "Akasa Air"
@@ -961,7 +1435,7 @@
           "flight_minutes": 685
         },
         {
-          "price": 636,
+          "price": 632,
           "airlines": [
             "Etihad",
             "Akasa Air"
@@ -1016,115 +1490,73 @@
       "depart": "2027-02-22",
       "return": "2027-03-09",
       "best": {
-        "price": 616,
-        "airlines": [
-          "Emirates"
-        ],
-        "path": [
-          "DUB",
-          "DXB",
-          "MAA"
-        ],
-        "depart": "2027-02-22 20:50",
-        "arrive": "2027-02-23 20:10",
-        "flight_minutes": 675
-      },
-      "auh": {
-        "price": 636,
+        "price": 1060,
         "airlines": [
           "Etihad",
-          "Akasa Air"
+          "Air Arabia"
         ],
         "path": [
           "DUB",
           "AUH",
           "MAA"
         ],
-        "depart": "2027-02-22 19:45",
-        "arrive": "2027-02-23 15:05",
-        "flight_minutes": 690
+        "depart": "2027-02-22 08:05",
+        "arrive": "2027-02-23 04:10",
+        "flight_minutes": 685
+      },
+      "auh": {
+        "price": 1060,
+        "airlines": [
+          "Etihad",
+          "Air Arabia"
+        ],
+        "path": [
+          "DUB",
+          "AUH",
+          "MAA"
+        ],
+        "depart": "2027-02-22 08:05",
+        "arrive": "2027-02-23 04:10",
+        "flight_minutes": 685
       },
       "options": [
         {
-          "price": 616,
-          "airlines": [
-            "Emirates"
-          ],
-          "path": [
-            "DUB",
-            "DXB",
-            "MAA"
-          ],
-          "depart": "2027-02-22 20:50",
-          "arrive": "2027-02-23 20:10",
-          "flight_minutes": 675
-        },
-        {
-          "price": 625,
-          "airlines": [
-            "Qatar Airways",
-            "IndiGo"
-          ],
-          "path": [
-            "DUB",
-            "DOH",
-            "MAA"
-          ],
-          "depart": "2027-02-22 07:45",
-          "arrive": "2027-02-23 02:15",
-          "flight_minutes": 685
-        },
-        {
-          "price": 636,
+          "price": 1060,
           "airlines": [
             "Etihad",
-            "Akasa Air"
+            "Air Arabia"
           ],
           "path": [
             "DUB",
             "AUH",
             "MAA"
           ],
-          "depart": "2027-02-22 19:45",
-          "arrive": "2027-02-23 15:05",
-          "flight_minutes": 690
-        },
-        {
-          "price": 637,
-          "airlines": [
-            "Aer Lingus",
-            "British Airways"
-          ],
-          "path": [
-            "DUB",
-            "LHR",
-            "MAA"
-          ],
-          "depart": "2027-02-22 10:00",
-          "arrive": "2027-02-23 05:35",
-          "flight_minutes": 680
-        },
-        {
-          "price": 648,
-          "airlines": [
-            "Etihad"
-          ],
-          "path": [
-            "DUB",
-            "AUH",
-            "MAA"
-          ],
-          "depart": "2027-02-22 19:45",
-          "arrive": "2027-02-23 19:50",
+          "depart": "2027-02-22 08:05",
+          "arrive": "2027-02-23 04:10",
           "flight_minutes": 685
+        },
+        {
+          "price": 1060,
+          "airlines": [
+            "Etihad",
+            "Air Arabia"
+          ],
+          "path": [
+            "DUB",
+            "AUH",
+            "MAA"
+          ],
+          "depart": "2027-02-22 19:45",
+          "arrive": "2027-02-24 04:10",
+          "flight_minutes": 680
         }
       ],
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjIoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDkoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
-      "auh_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjIoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDkoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
+      "auh_url": "https://www.google.com/travel/flights/search?tfs=GiESCjIwMjctMDItMjIoAWoFEgNEVUJyBRIDTUFBegNBVUgaIRIKMjAyNy0wMy0wOSgBagUSA01BQXIFEgNEVUJ6A0FVSEIBAUgBmAEB&hl=en&curr=EUR",
       "stale": false,
       "low": 616,
       "high": 1060,
-      "change": 0
+      "change": 444
     },
     {
       "depart": "2027-02-22",
@@ -1144,7 +1576,7 @@
         "flight_minutes": 675
       },
       "auh": {
-        "price": 636,
+        "price": 632,
         "airlines": [
           "Etihad",
           "Akasa Air"
@@ -1174,7 +1606,7 @@
           "flight_minutes": 675
         },
         {
-          "price": 636,
+          "price": 632,
           "airlines": [
             "Etihad",
             "Akasa Air"
@@ -1256,7 +1688,20 @@
         "arrive": "2027-02-25 05:35",
         "flight_minutes": 675
       },
-      "auh": null,
+      "auh": {
+        "price": 646,
+        "airlines": [
+          "Etihad"
+        ],
+        "path": [
+          "DUB",
+          "AUH",
+          "MAA"
+        ],
+        "depart": "2027-02-23 08:05",
+        "arrive": "2027-02-24 02:35",
+        "flight_minutes": 690
+      },
       "options": [
         {
           "price": 595,
@@ -1302,6 +1747,20 @@
           "flight_minutes": 675
         },
         {
+          "price": 646,
+          "airlines": [
+            "Etihad"
+          ],
+          "path": [
+            "DUB",
+            "AUH",
+            "MAA"
+          ],
+          "depart": "2027-02-23 08:05",
+          "arrive": "2027-02-24 02:35",
+          "flight_minutes": 690
+        },
+        {
           "price": 656,
           "airlines": [
             "Qatar Airways",
@@ -1314,20 +1773,6 @@
           ],
           "depart": "2027-02-23 07:45",
           "arrive": "2027-02-24 02:15",
-          "flight_minutes": 685
-        },
-        {
-          "price": 802,
-          "airlines": [
-            "British Airways"
-          ],
-          "path": [
-            "DUB",
-            "LHR",
-            "MAA"
-          ],
-          "depart": "2027-02-23 11:00",
-          "arrive": "2027-02-24 05:35",
           "flight_minutes": 685
         }
       ],
@@ -1356,7 +1801,7 @@
         "flight_minutes": 675
       },
       "auh": {
-        "price": 651,
+        "price": 642,
         "airlines": [
           "Etihad"
         ],
@@ -1429,7 +1874,7 @@
           "flight_minutes": 680
         },
         {
-          "price": 651,
+          "price": 642,
           "airlines": [
             "Etihad"
           ],
@@ -1467,20 +1912,7 @@
         "arrive": "2027-02-24 20:10",
         "flight_minutes": 675
       },
-      "auh": {
-        "price": 651,
-        "airlines": [
-          "Etihad"
-        ],
-        "path": [
-          "DUB",
-          "AUH",
-          "MAA"
-        ],
-        "depart": "2027-02-23 08:05",
-        "arrive": "2027-02-24 02:35",
-        "flight_minutes": 690
-      },
+      "auh": null,
       "options": [
         {
           "price": 616,
@@ -1495,20 +1927,6 @@
           "depart": "2027-02-23 20:50",
           "arrive": "2027-02-24 20:10",
           "flight_minutes": 675
-        },
-        {
-          "price": 619,
-          "airlines": [
-            "British Airways"
-          ],
-          "path": [
-            "DUB",
-            "LHR",
-            "MAA"
-          ],
-          "depart": "2027-02-23 16:20",
-          "arrive": "2027-02-25 05:35",
-          "flight_minutes": 680
         },
         {
           "price": 625,
@@ -1526,6 +1944,20 @@
           "flight_minutes": 685
         },
         {
+          "price": 630,
+          "airlines": [
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LCY",
+            "MAA"
+          ],
+          "depart": "2027-02-23 20:05",
+          "arrive": "2027-02-25 05:35",
+          "flight_minutes": 675
+        },
+        {
           "price": 632,
           "airlines": [
             "Aer Lingus",
@@ -1541,18 +1973,18 @@
           "flight_minutes": 680
         },
         {
-          "price": 651,
+          "price": 690,
           "airlines": [
-            "Etihad"
+            "Lufthansa"
           ],
           "path": [
             "DUB",
-            "AUH",
+            "FRA",
             "MAA"
           ],
-          "depart": "2027-02-23 08:05",
-          "arrive": "2027-02-24 02:35",
-          "flight_minutes": 690
+          "depart": "2027-02-23 05:10",
+          "arrive": "2027-02-24 00:05",
+          "flight_minutes": 680
         }
       ],
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjMoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMDkoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
@@ -1560,7 +1992,7 @@
       "stale": false,
       "low": 595,
       "high": 653,
-      "change": 21
+      "change": 0
     },
     {
       "depart": "2027-02-23",
@@ -1579,7 +2011,20 @@
         "arrive": "2027-02-24 20:10",
         "flight_minutes": 675
       },
-      "auh": null,
+      "auh": {
+        "price": 642,
+        "airlines": [
+          "Etihad"
+        ],
+        "path": [
+          "DUB",
+          "AUH",
+          "MAA"
+        ],
+        "depart": "2027-02-23 08:05",
+        "arrive": "2027-02-24 02:35",
+        "flight_minutes": 690
+      },
       "options": [
         {
           "price": 616,
@@ -1625,6 +2070,20 @@
           "flight_minutes": 680
         },
         {
+          "price": 642,
+          "airlines": [
+            "Etihad"
+          ],
+          "path": [
+            "DUB",
+            "AUH",
+            "MAA"
+          ],
+          "depart": "2027-02-23 08:05",
+          "arrive": "2027-02-24 02:35",
+          "flight_minutes": 690
+        },
+        {
           "price": 657,
           "airlines": [
             "Qatar Airways"
@@ -1637,20 +2096,6 @@
           "depart": "2027-02-23 07:45",
           "arrive": "2027-02-24 02:30",
           "flight_minutes": 675
-        },
-        {
-          "price": 714,
-          "airlines": [
-            "Lufthansa"
-          ],
-          "path": [
-            "DUB",
-            "FRA",
-            "MAA"
-          ],
-          "depart": "2027-02-23 05:10",
-          "arrive": "2027-02-24 00:05",
-          "flight_minutes": 680
         }
       ],
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjMoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMTAoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
@@ -1678,7 +2123,7 @@
         "flight_minutes": 680
       },
       "auh": {
-        "price": 645,
+        "price": 641,
         "airlines": [
           "Etihad"
         ],
@@ -1750,7 +2195,7 @@
           "flight_minutes": 675
         },
         {
-          "price": 645,
+          "price": 641,
           "airlines": [
             "Etihad"
           ],
@@ -1789,7 +2234,7 @@
         "flight_minutes": 690
       },
       "auh": {
-        "price": 636,
+        "price": 632,
         "airlines": [
           "Etihad",
           "Akasa Air"
@@ -1862,7 +2307,7 @@
           "flight_minutes": 685
         },
         {
-          "price": 636,
+          "price": 632,
           "airlines": [
             "Etihad",
             "Akasa Air"
@@ -1902,7 +2347,7 @@
         "flight_minutes": 675
       },
       "auh": {
-        "price": 636,
+        "price": 632,
         "airlines": [
           "Etihad",
           "Akasa Air"
@@ -1949,21 +2394,6 @@
         {
           "price": 632,
           "airlines": [
-            "Aer Lingus",
-            "British Airways"
-          ],
-          "path": [
-            "DUB",
-            "LHR",
-            "MAA"
-          ],
-          "depart": "2027-02-24 10:00",
-          "arrive": "2027-02-25 05:35",
-          "flight_minutes": 680
-        },
-        {
-          "price": 636,
-          "airlines": [
             "Etihad",
             "Akasa Air"
           ],
@@ -1975,6 +2405,21 @@
           "depart": "2027-02-24 19:45",
           "arrive": "2027-02-25 15:00",
           "flight_minutes": 690
+        },
+        {
+          "price": 638,
+          "airlines": [
+            "Aer Lingus",
+            "British Airways"
+          ],
+          "path": [
+            "DUB",
+            "LHR",
+            "MAA"
+          ],
+          "depart": "2027-02-24 10:00",
+          "arrive": "2027-02-25 05:35",
+          "flight_minutes": 680
         },
         {
           "price": 646,
@@ -2016,7 +2461,7 @@
         "flight_minutes": 675
       },
       "auh": {
-        "price": 636,
+        "price": 632,
         "airlines": [
           "Etihad",
           "Akasa Air"
@@ -2046,7 +2491,7 @@
           "flight_minutes": 675
         },
         {
-          "price": 636,
+          "price": 632,
           "airlines": [
             "Etihad",
             "Akasa Air"
@@ -2354,7 +2799,7 @@
         "flight_minutes": 675
       },
       "auh": {
-        "price": 636,
+        "price": 632,
         "airlines": [
           "Etihad",
           "Akasa Air"
@@ -2414,7 +2859,7 @@
           "flight_minutes": 680
         },
         {
-          "price": 636,
+          "price": 632,
           "airlines": [
             "Etihad",
             "Akasa Air"
@@ -2915,7 +3360,7 @@
         "flight_minutes": 680
       },
       "auh": {
-        "price": 646,
+        "price": 642,
         "airlines": [
           "Etihad"
         ],
@@ -2959,7 +3404,7 @@
           "flight_minutes": 675
         },
         {
-          "price": 646,
+          "price": 642,
           "airlines": [
             "Etihad"
           ],
@@ -3013,23 +3458,10 @@
       "depart": "2027-02-26",
       "return": "2027-03-11",
       "best": {
-        "price": 629,
+        "price": 1063,
         "airlines": [
-          "British Airways"
-        ],
-        "path": [
-          "DUB",
-          "LCY",
-          "MAA"
-        ],
-        "depart": "2027-02-26 20:05",
-        "arrive": "2027-02-28 05:35",
-        "flight_minutes": 675
-      },
-      "auh": {
-        "price": 641,
-        "airlines": [
-          "Etihad"
+          "Etihad",
+          "Air Arabia"
         ],
         "path": [
           "DUB",
@@ -3037,43 +3469,30 @@
           "MAA"
         ],
         "depart": "2027-02-26 19:45",
-        "arrive": "2027-02-27 19:50",
-        "flight_minutes": 685
+        "arrive": "2027-02-28 04:10",
+        "flight_minutes": 680
+      },
+      "auh": {
+        "price": 1063,
+        "airlines": [
+          "Etihad",
+          "Air Arabia"
+        ],
+        "path": [
+          "DUB",
+          "AUH",
+          "MAA"
+        ],
+        "depart": "2027-02-26 19:45",
+        "arrive": "2027-02-28 04:10",
+        "flight_minutes": 680
       },
       "options": [
         {
-          "price": 629,
+          "price": 1063,
           "airlines": [
-            "British Airways"
-          ],
-          "path": [
-            "DUB",
-            "LCY",
-            "MAA"
-          ],
-          "depart": "2027-02-26 20:05",
-          "arrive": "2027-02-28 05:35",
-          "flight_minutes": 675
-        },
-        {
-          "price": 632,
-          "airlines": [
-            "Aer Lingus",
-            "British Airways"
-          ],
-          "path": [
-            "DUB",
-            "LHR",
-            "MAA"
-          ],
-          "depart": "2027-02-26 08:45",
-          "arrive": "2027-02-27 05:35",
-          "flight_minutes": 680
-        },
-        {
-          "price": 641,
-          "airlines": [
-            "Etihad"
+            "Etihad",
+            "Air Arabia"
           ],
           "path": [
             "DUB",
@@ -3081,44 +3500,31 @@
             "MAA"
           ],
           "depart": "2027-02-26 19:45",
-          "arrive": "2027-02-27 19:50",
+          "arrive": "2027-02-28 04:10",
+          "flight_minutes": 680
+        },
+        {
+          "price": 1068,
+          "airlines": [
+            "Etihad",
+            "Air Arabia"
+          ],
+          "path": [
+            "DUB",
+            "AUH",
+            "MAA"
+          ],
+          "depart": "2027-02-26 08:05",
+          "arrive": "2027-02-27 04:10",
           "flight_minutes": 685
-        },
-        {
-          "price": 641,
-          "airlines": [
-            "Emirates"
-          ],
-          "path": [
-            "DUB",
-            "DXB",
-            "MAA"
-          ],
-          "depart": "2027-02-26 20:50",
-          "arrive": "2027-02-27 20:10",
-          "flight_minutes": 675
-        },
-        {
-          "price": 665,
-          "airlines": [
-            "Qatar Airways"
-          ],
-          "path": [
-            "DUB",
-            "DOH",
-            "MAA"
-          ],
-          "depart": "2027-02-26 07:45",
-          "arrive": "2027-02-27 02:30",
-          "flight_minutes": 675
         }
       ],
       "url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjYoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMTEoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
-      "auh_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMjYoAWoFEgNEVUJyBRIDTUFBGhwSCjIwMjctMDMtMTEoAWoFEgNNQUFyBRIDRFVCQgEBSAGYAQE=&hl=en&curr=EUR",
+      "auh_url": "https://www.google.com/travel/flights/search?tfs=GiESCjIwMjctMDItMjYoAWoFEgNEVUJyBRIDTUFBegNBVUgaIRIKMjAyNy0wMy0xMSgBagUSA01BQXIFEgNEVUJ6A0FVSEIBAUgBmAEB&hl=en&curr=EUR",
       "stale": false,
       "low": 629,
-      "high": 641,
-      "change": 0
+      "high": 1063,
+      "change": 434
     },
     {
       "depart": "2027-02-26",
