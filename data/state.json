@@ -1,7 +1,10 @@
 {
   "consecutive_failures": 0,
   "target": {
-    "best": {},
+    "best": {
+      "price": 595,
+      "at": "2026-11-26T00:19:40+00:00"
+    },
     "auh": {}
   },
   "last_summary": "2026-11-25"
